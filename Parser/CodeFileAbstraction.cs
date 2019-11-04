@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MyProgrammingLanguage;
 
 namespace Parser
 {
@@ -85,6 +86,21 @@ namespace Parser
         public override string ToString()
         {
             return Value().ToString();
+        }
+
+        public bool IsNumeric()
+        {
+            int n;
+            return Int32.TryParse(this.Value(), out n);
+            
+        }
+
+        public MyInteger GetIntValue()
+        {
+            int n;
+            bool isNumeric = Int32.TryParse(this.Value(), out n);
+
+            return new MyInteger(n);
         }
     }
 }

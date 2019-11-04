@@ -1,0 +1,17 @@
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\bin\Debug\netcoreapp2.2\fib.txt
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\bin\Debug\netcoreapp2.2\mult.txt
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\bin\Debug\netcoreapp2.2\program.txt
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\bin\Debug\netcoreapp2.2\QuickAndDirtyParser.deps.json
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\bin\Debug\netcoreapp2.2\QuickAndDirtyParser.runtimeconfig.json
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\bin\Debug\netcoreapp2.2\QuickAndDirtyParser.runtimeconfig.dev.json
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\bin\Debug\netcoreapp2.2\QuickAndDirtyParser.dll
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\bin\Debug\netcoreapp2.2\QuickAndDirtyParser.pdb
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\bin\Debug\netcoreapp2.2\MyProgrammingLanguage.dll
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\bin\Debug\netcoreapp2.2\MyProgrammingLanguage.pdb
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\obj\Debug\netcoreapp2.2\QuickAndDirtyParser.csprojAssemblyReference.cache
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\obj\Debug\netcoreapp2.2\QuickAndDirtyParser.csproj.CoreCompileInputs.cache
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\obj\Debug\netcoreapp2.2\QuickAndDirtyParser.AssemblyInfoInputs.cache
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\obj\Debug\netcoreapp2.2\QuickAndDirtyParser.AssemblyInfo.cs
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\obj\Debug\netcoreapp2.2\QuickAndDirtyParser.csproj.CopyComplete
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\obj\Debug\netcoreapp2.2\QuickAndDirtyParser.dll
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\obj\Debug\netcoreapp2.2\QuickAndDirtyParser.pdb

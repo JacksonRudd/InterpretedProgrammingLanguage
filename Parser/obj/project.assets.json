@@ -730,9 +730,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\us55839\\source\\repos\\MyProgrammingLanguage\\Parser\\Parser.csproj",
-      "projectName": "Parser",
-      "projectPath": "C:\\Users\\us55839\\source\\repos\\MyProgrammingLanguage\\Parser\\Parser.csproj",
+      "projectUniqueName": "C:\\Users\\us55839\\source\\repos\\MyProgrammingLanguage\\Parser\\QuickAndDirtyParser.csproj",
+      "projectName": "QuickAndDirtyParser",
+      "projectPath": "C:\\Users\\us55839\\source\\repos\\MyProgrammingLanguage\\Parser\\QuickAndDirtyParser.csproj",
       "packagesPath": "C:\\Users\\us55839\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\us55839\\source\\repos\\MyProgrammingLanguage\\Parser\\obj\\",
       "projectStyle": "PackageReference",

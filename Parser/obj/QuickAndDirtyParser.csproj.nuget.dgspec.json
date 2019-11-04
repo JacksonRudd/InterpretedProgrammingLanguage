@@ -1,0 +1,120 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\us55839\\source\\repos\\MyProgrammingLanguage\\Parser\\QuickAndDirtyParser.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\us55839\\source\\repos\\MyProgrammingLanguage\\MyProgrammingLanguage\\MyProgrammingLanguage.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\us55839\\source\\repos\\MyProgrammingLanguage\\MyProgrammingLanguage\\MyProgrammingLanguage.csproj",
+        "projectName": "MyProgrammingLanguage",
+        "projectPath": "C:\\Users\\us55839\\source\\repos\\MyProgrammingLanguage\\MyProgrammingLanguage\\MyProgrammingLanguage.csproj",
+        "packagesPath": "C:\\Users\\us55839\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\us55839\\source\\repos\\MyProgrammingLanguage\\MyProgrammingLanguage\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\us55839\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Users\\us55839\\source\\repos\\MyProgrammingLanguage\\Parser\\QuickAndDirtyParser.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\us55839\\source\\repos\\MyProgrammingLanguage\\Parser\\QuickAndDirtyParser.csproj",
+        "projectName": "QuickAndDirtyParser",
+        "projectPath": "C:\\Users\\us55839\\source\\repos\\MyProgrammingLanguage\\Parser\\QuickAndDirtyParser.csproj",
+        "packagesPath": "C:\\Users\\us55839\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\us55839\\source\\repos\\MyProgrammingLanguage\\Parser\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\us55839\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "C:\\Users\\us55839\\source\\repos\\MyProgrammingLanguage\\MyProgrammingLanguage\\MyProgrammingLanguage.csproj": {
+                "projectPath": "C:\\Users\\us55839\\source\\repos\\MyProgrammingLanguage\\MyProgrammingLanguage\\MyProgrammingLanguage.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "simple-lexer": {
+              "target": "Package",
+              "version": "[0.0.2, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

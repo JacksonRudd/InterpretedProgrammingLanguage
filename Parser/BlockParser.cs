@@ -47,14 +47,10 @@ namespace Parser
             }
         }
 
-        private void ParseFunctionDefinition(CodeFileAbstraction codeFile, FunctionDefinitionSet functionSet,
-            StringAbstraction s)
+        private void ParseFunctionDefinition(CodeFileAbstraction codeFile, FunctionDefinitionSet functionSet, StringAbstraction s)
         {
-            List<StringAbstraction> args;
-            Block functionBlock;
-            args = new List<StringAbstraction>(codeFile.GetCurrentLine().AfterFirstPipe().Split(","));
-            ;
-            functionBlock = GetBlock(codeFile, functionSet);
+            List<StringAbstraction> args = new List<StringAbstraction>(codeFile.GetCurrentLine().AfterFirstPipe().Split(","));
+            Block functionBlock = GetBlock(codeFile, functionSet);
             functionSet.Add(new FunctionName(s.BeforeFirstOccuranceOf("|").Value()),
                 new IntReturningFunction(
                     functionBlock,
@@ -93,9 +89,8 @@ namespace Parser
             FunctionDefinitionSet functionSet)
         {
             StringAbstraction expression = codeFile.GetCurrentLine().AfterFirstColon();
-            IIntegerReturningStatement smaller =
-                ParseIntReturningExpression(expression.BeforeFirstOccuranceOf("<"), functionSet);
-            IIntegerReturningStatement bigger = ParseIntReturningExpression(expression.AfterFirstOccuranceOf("<"), functionSet);
+            IIntegerReturningStatement smaller = ParseIntReturningExpression(expression.BeforeFirstOccuranceOf("<"), functionSet);
+            IIntegerReturningStatement bigger  = ParseIntReturningExpression( expression.AfterFirstOccuranceOf("<"), functionSet);
             IBooleanReturningStatement condition = new CompareLessThan(smaller, bigger);
             return condition;
         }
@@ -103,9 +98,8 @@ namespace Parser
 
         private static IIntegerReturningStatement ParseIntReturningExpression(StringAbstraction s, FunctionDefinitionSet functionSet)
         {
-            int n;
-            bool isNumeric = Int32.TryParse(s.Value(), out n);
-            if (isNumeric) return new MyInteger(n);
+            
+            if (s.IsNumeric()) return s.GetIntValue();
             if (s.Contains(">"))
             {
                 return ParseFunctionEvalulation(s, functionSet);
