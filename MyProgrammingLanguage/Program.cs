@@ -12,7 +12,7 @@ namespace MyProgrammingLanguage
                 new IntReturningFunction(
                     new Block().AddChild(new IntegerAssignment(new VariableName("b"), new MyInteger(4000))).AddChild(new PrintIntegerReturningStatement(new IntVariableEvaluation(new VariableName("b")))),
                     new IntVariableEvaluation(new VariableName("c")), 
-                    new List<string>{"c"}
+                    new List<VariableName>{new VariableName("c")}
                     ));
             Block block = new Block()
                 .AddChild(new IntegerAssignment(new VariableName("b"), new MyInteger(2)))

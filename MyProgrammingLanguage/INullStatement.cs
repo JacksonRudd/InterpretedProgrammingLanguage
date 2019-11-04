@@ -170,9 +170,9 @@ namespace MyProgrammingLanguage
     {
         private Block statements;
         private IIntegerReturningStatement lastStatement;
-        public List<string> variableNames;
+        public List<VariableName> variableNames;
 
-        public IntReturningFunction(Block statements, IIntegerReturningStatement lastStatement, List<string> variableNames)
+        public IntReturningFunction(Block statements, IIntegerReturningStatement lastStatement, List<VariableName> variableNames)
         {
             this.statements = statements;
             this.lastStatement = lastStatement;
