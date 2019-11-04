@@ -1,0 +1,52 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.2",
+    "signature": "7a97f23403cae7c8eef2010123de5a145288b739"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.2": {
+      "Parser/1.0.0": {
+        "dependencies": {
+          "MyProgrammingLanguage": "1.0.0",
+          "simple-lexer": "0.0.2"
+        },
+        "runtime": {
+          "Parser.dll": {}
+        }
+      },
+      "simple-lexer/0.0.2": {
+        "runtime": {
+          "lib/netcoreapp2.0/simple-lexer.dll": {
+            "assemblyVersion": "0.0.2.0",
+            "fileVersion": "0.0.2.0"
+          }
+        }
+      },
+      "MyProgrammingLanguage/1.0.0": {
+        "runtime": {
+          "MyProgrammingLanguage.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Parser/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "simple-lexer/0.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CAVzlAbqMgjO9e4JjK0OZr4Pn1Cw1Z81visVsSyeoHQEbPuogpX+Molb29tIc2KL/PA6qTEiv0D3vhOqibL90g==",
+      "path": "simple-lexer/0.0.2",
+      "hashPath": "simple-lexer.0.0.2.nupkg.sha512"
+    },
+    "MyProgrammingLanguage/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

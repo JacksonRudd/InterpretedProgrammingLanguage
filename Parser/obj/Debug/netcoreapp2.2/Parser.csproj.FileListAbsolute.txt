@@ -1,0 +1,15 @@
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\bin\Debug\netcoreapp2.2\program.txt
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\bin\Debug\netcoreapp2.2\Parser.deps.json
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\bin\Debug\netcoreapp2.2\Parser.runtimeconfig.json
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\bin\Debug\netcoreapp2.2\Parser.runtimeconfig.dev.json
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\bin\Debug\netcoreapp2.2\Parser.dll
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\obj\Debug\netcoreapp2.2\Parser.csprojAssemblyReference.cache
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\obj\Debug\netcoreapp2.2\Parser.csproj.CoreCompileInputs.cache
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\obj\Debug\netcoreapp2.2\Parser.AssemblyInfoInputs.cache
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\obj\Debug\netcoreapp2.2\Parser.AssemblyInfo.cs
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\bin\Debug\netcoreapp2.2\Parser.pdb
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\bin\Debug\netcoreapp2.2\MyProgrammingLanguage.dll
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\bin\Debug\netcoreapp2.2\MyProgrammingLanguage.pdb
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\obj\Debug\netcoreapp2.2\Parser.csproj.CopyComplete
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\obj\Debug\netcoreapp2.2\Parser.dll
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\obj\Debug\netcoreapp2.2\Parser.pdb
