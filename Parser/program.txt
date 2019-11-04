@@ -3,6 +3,9 @@ j = 0
 
 Jackson| a,b
 	print: a
+	if: a < 31
+		print: Jackson> 700000000,0
+	end
 	return b
 
 while: i<30

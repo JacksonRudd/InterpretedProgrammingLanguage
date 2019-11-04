@@ -20,7 +20,7 @@ namespace Parser
                 if (s.Contains("|"))
                 {
                     args = new List<StringAbstraction>(codeFile.GetCurrentLine().AfterFirstPipe().Split(",")); ;
-                    functionBlock = GetBlock(codeFile, null);
+                    functionBlock = GetBlock(codeFile, functionSet);
                     functionSet.Add(new FunctionName(s.Split("|")[0].Value()),
                         new IntReturningFunction(
                         functionBlock,
