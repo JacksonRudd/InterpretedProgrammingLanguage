@@ -152,22 +152,40 @@ namespace MyProgrammingLanguage
     public class CallIntegerReturningFunction : IIntegerReturningStatement
     {
         private IntReturningFunction function;
+        private Context myContext;
+
+        public CallIntegerReturningFunction(IntReturningFunction function, Context myContext)
+        {
+            this.function = function;
+            this.myContext = myContext;
+        }
         public MyInteger execute(Context functionContext)
         {
-            return function.execute(functionContext);
+
+            return function.execute(myContext);
         }
     }
 
     public class IntReturningFunction : IIntegerReturningStatement
     {
-        private IIntegerReturningStatement statement;
+        private Block statements;
+        private IIntegerReturningStatement lastStatement;
+        public List<string> variableNames;
+
+        public IntReturningFunction(Block statements, IIntegerReturningStatement lastStatement, List<string> variableNames)
+        {
+            this.statements = statements;
+            this.lastStatement = lastStatement;
+            this.variableNames = variableNames;
+        }
 
         public MyInteger execute(Context functionContext)
         {
-            return statement.execute(functionContext);
+            statements.execute(functionContext);
+            return lastStatement.execute(functionContext);
         }
 
-        
+
     }
 
     public class IntegerAssignment : INullStatement
@@ -218,12 +236,14 @@ namespace MyProgrammingLanguage
     }
 
 
+
     public class Context
     {
         private Dictionary<string, MyInteger> variableLookup = new Dictionary<string, MyInteger>();
-        public void AddVariableAssignment(VariableName varName, MyInteger value)
+        public Context AddVariableAssignment(VariableName varName, MyInteger value)
         {
             variableLookup[varName.variableName] = value;
+            return this;
         }
 
         public MyInteger GetValue(VariableName variableName)
