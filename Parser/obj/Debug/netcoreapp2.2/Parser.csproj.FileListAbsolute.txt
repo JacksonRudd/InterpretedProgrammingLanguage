@@ -13,3 +13,5 @@ C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\bin\Debug\netcoreapp2
 C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\obj\Debug\netcoreapp2.2\Parser.csproj.CopyComplete
 C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\obj\Debug\netcoreapp2.2\Parser.dll
 C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\obj\Debug\netcoreapp2.2\Parser.pdb
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\bin\Debug\netcoreapp2.2\fib.txt
+C:\Users\us55839\source\repos\MyProgrammingLanguage\Parser\bin\Debug\netcoreapp2.2\mult.txt

@@ -1,0 +1,11 @@
+﻿Mult| a,b
+	x = 0
+	answer = 0
+	while: x<b
+		answer = sum: answer,a
+		x = sum: x,1
+	end
+	return answer
+
+print: Mult> 3,5
+end

@@ -1,0 +1,9 @@
+﻿Jackson| a,b
+	if: a < 200
+		c = sum:a,b
+		print: Jackson> b,c
+	end
+	return b
+t = Jackson> 1, 1
+print: t
+end
