@@ -1,9 +1,9 @@
-﻿Jackson| a,b
+﻿fib| a,b
 	if: a < 200
 		c = sum:a,b
-		print: Jackson> b,c
+		print: fib> b,c
 	end
 	return b
-t = Jackson> 1, 1
+t = fib> 1, 1
 print: t
 end
