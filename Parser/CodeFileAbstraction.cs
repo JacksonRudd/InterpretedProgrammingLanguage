@@ -15,6 +15,10 @@ namespace Parser
         {
             return GetCurrentLine().Split(new[] {':'}, 2)[1];
         }
+        public string AfterFirstPipe()
+        {
+            return GetCurrentLine().Split(new[] { '|' }, 2)[1];
+        }
         public string GetCurrentLine()
         {
             return list[index].Replace(" ", "").Replace("\t", ""); ;

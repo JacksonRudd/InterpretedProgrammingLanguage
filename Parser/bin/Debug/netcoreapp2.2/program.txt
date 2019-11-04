@@ -1,5 +1,6 @@
 ﻿i = 0
 j = 0
+
 while: i<30
 	j = 0
 	while: j<20

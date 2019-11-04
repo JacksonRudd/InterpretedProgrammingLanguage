@@ -33,7 +33,7 @@ namespace MyProgrammingLanguage
         }
     }
 
-    internal class FunctionDefinitionSet
+    public class FunctionDefinitionSet
     {
         private Dictionary<string, IntReturningFunction> _dictionary = new Dictionary<string, IntReturningFunction>();
 

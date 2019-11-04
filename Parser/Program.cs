@@ -10,8 +10,9 @@ namespace Parser
         static void Main(string[] args)
         {
             CodeFileAbstraction codeFile = new CodeFileAbstraction(new List<string>(File.ReadAllLines("program.txt")));
+            FunctionDefinitionSet functionSet = new FunctionDefinitionSet();
             BlockParser blockParser = new BlockParser();
-            blockParser.GetBlock(codeFile).execute(new Context());
+            blockParser.GetBlock(codeFile, functionSet).execute(new Context());
             
         }
     }
