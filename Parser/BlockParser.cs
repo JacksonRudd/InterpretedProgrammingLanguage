@@ -89,13 +89,14 @@ namespace Parser
                         )
                     );
                 Context myContext = new Context();
+                List<IIntegerReturningStatement> statements = new List<IIntegerReturningStatement>();
 
                 for (int i = 0; i < function.variableNames.Count; i++)
                 {
-                    myContext.AddVariableAssignment(function.variableNames[i], ParseIntReturningExpression(args[i],functionSet).execute(myContext));
+                    statements.Add(ParseIntReturningExpression(args[i], functionSet));
                 }
 
-                return new CallIntegerReturningFunction(function, myContext);
+                return new CallIntegerReturningFunction(function,statements);
             }
             if (s.StartsWith("sum:"))
             {

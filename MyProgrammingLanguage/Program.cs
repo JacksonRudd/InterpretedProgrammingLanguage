@@ -17,10 +17,10 @@ namespace MyProgrammingLanguage
             Block block = new Block()
                 .AddChild(new IntegerAssignment(new VariableName("b"), new MyInteger(2)))
                 .AddChild(new IntegerAssignment(new VariableName("a"), new MyInteger(5)))
-                .AddChild(new PrintIntegerReturningStatement(
-                    new CallIntegerReturningFunction(
-                        functionSet.Lookup(new FunctionName("functionName")), new Context().AddVariableAssignment(new VariableName("c"),new MyInteger(80085) )
-                        )))
+                //.AddChild(new PrintIntegerReturningStatement(
+                //    new CallIntegerReturningFunction(
+                //        functionSet.Lookup(new FunctionName("functionName")), new Context().AddVariableAssignment(new VariableName("c"),new MyInteger(80085) )
+                //        )))
                 .AddChild(
                     new WhileLoop(
                         new CompareLessThan(new IntVariableEvaluation(new VariableName("a")),new MyInteger(300) ),

@@ -1,9 +1,15 @@
 ﻿i = 0
 j = 0
+
+Jackson| a,b
+	print: a
+	return b
+t = Jackson> i, 22222
+print: t
 while: i<30
 	j = 0
 	while: j<20
-		if: j< 3
+		if: j< 0
 			print: j
 		end
 		j= sum: j, 1
