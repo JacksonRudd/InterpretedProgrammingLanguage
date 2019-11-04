@@ -19,52 +19,85 @@ namespace Parser
                 var a = s.Value();
                 if (s.Contains("|"))
                 {
-                    args = new List<StringAbstraction>(codeFile.GetCurrentLine().AfterFirstPipe().Split(",")); ;
-                    functionBlock = GetBlock(codeFile, functionSet);
-                    functionSet.Add(new FunctionName(s.BeforeFirstOccuranceOf("|").Value()),
-                        new IntReturningFunction(
-                        functionBlock,
-                        ParseIntReturningExpression(codeFile.GetCurrentLine().Replace("return", ""), functionSet),
-                        args.Select(x => new VariableName(x.Value())).ToList()
-
-                        ));
+                    ParseFunctionDefinition(codeFile, functionSet, s);
                     continue;
                 }
                
                 if (s.StartsWith("print:"))
                 {
-                    block.AddChild(new PrintIntegerReturningStatement(ParseIntReturningExpression(codeFile.GetCurrentLine().AfterFirstColon(), functionSet)));
+                    ParsePrint(codeFile, functionSet, block);
                     continue;
                 }
                 if (s.Value().Equals("end") || s.StartsWith("return")) return block;
                 if (s.Contains("="))
                 {
-                    var split = s.Split("=");
-                    IIntegerReturningStatement toSetTo = ParseIntReturningExpression(s.AfterFirstOccuranceOf("="), functionSet);
-                    block.AddChild(new IntegerAssignment(new VariableName(s.BeforeFirstOccuranceOf("=").ToString()), toSetTo));
+                    ParseVariableDeclaration(functionSet, s, block);
                     continue;
                 }
                 if (s.StartsWith("while:"))
                 {
-                    StringAbstraction expression = codeFile.GetCurrentLine().AfterFirstColon();
-                    IIntegerReturningStatement smaller = ParseIntReturningExpression(expression.BeforeFirstOccuranceOf("<"), functionSet);
-                    IIntegerReturningStatement bigger = ParseIntReturningExpression(expression.AfterFirstOccuranceOf("<"), functionSet);
-                    IBooleanReturningStatement condition = new CompareLessThan(smaller, bigger);
-                    block.AddChild(new WhileLoop(condition, GetBlock(codeFile, functionSet)));
+                    ParseWhileLoop(codeFile, functionSet, block);
                     continue;
                 }
                 if (s.StartsWith("if:"))
                 {
-                    StringAbstraction expression = s.Split(":")[1];
-                    IIntegerReturningStatement smaller = ParseIntReturningExpression(expression.BeforeFirstOccuranceOf("<"), functionSet);
-                    IIntegerReturningStatement bigger = ParseIntReturningExpression(expression.AfterFirstOccuranceOf("<"), functionSet);
-                    IBooleanReturningStatement condition = new CompareLessThan(smaller, bigger);
-                    block.AddChild(new IfStatement(condition, GetBlock(codeFile, functionSet)));
+                    ParseIf(codeFile, functionSet, block);
                     continue;
                 }
-
-
             }
+        }
+
+        private void ParseFunctionDefinition(CodeFileAbstraction codeFile, FunctionDefinitionSet functionSet,
+            StringAbstraction s)
+        {
+            List<StringAbstraction> args;
+            Block functionBlock;
+            args = new List<StringAbstraction>(codeFile.GetCurrentLine().AfterFirstPipe().Split(","));
+            ;
+            functionBlock = GetBlock(codeFile, functionSet);
+            functionSet.Add(new FunctionName(s.BeforeFirstOccuranceOf("|").Value()),
+                new IntReturningFunction(
+                    functionBlock,
+                    ParseIntReturningExpression(codeFile.GetCurrentLine().Replace("return", ""), functionSet),
+                    args.Select(x => new VariableName(x.Value())).ToList()
+                ));
+        }
+
+        private static void ParsePrint(CodeFileAbstraction codeFile, FunctionDefinitionSet functionSet, Block block)
+        {
+            block.AddChild(
+                new PrintIntegerReturningStatement(ParseIntReturningExpression(codeFile.GetCurrentLine().AfterFirstColon(),
+                    functionSet)));
+        }
+
+        private static void ParseVariableDeclaration(FunctionDefinitionSet functionSet, StringAbstraction s, Block block)
+        {
+            var split = s.Split("=");
+            IIntegerReturningStatement toSetTo = ParseIntReturningExpression(s.AfterFirstOccuranceOf("="), functionSet);
+            block.AddChild(new IntegerAssignment(new VariableName(s.BeforeFirstOccuranceOf("=").ToString()), toSetTo));
+        }
+
+        private void ParseIf(CodeFileAbstraction codeFile, FunctionDefinitionSet functionSet, Block block)
+        {
+            var condition = ParseLessThanCondition(codeFile, functionSet);
+            block.AddChild(new IfStatement(condition, GetBlock(codeFile, functionSet)));
+        }
+
+        private void ParseWhileLoop(CodeFileAbstraction codeFile, FunctionDefinitionSet functionSet, Block block)
+        {
+            var condition = ParseLessThanCondition(codeFile, functionSet);
+            block.AddChild(new WhileLoop(condition, GetBlock(codeFile, functionSet)));
+        }
+
+        private static IBooleanReturningStatement ParseLessThanCondition(CodeFileAbstraction codeFile,
+            FunctionDefinitionSet functionSet)
+        {
+            StringAbstraction expression = codeFile.GetCurrentLine().AfterFirstColon();
+            IIntegerReturningStatement smaller =
+                ParseIntReturningExpression(expression.BeforeFirstOccuranceOf("<"), functionSet);
+            IIntegerReturningStatement bigger = ParseIntReturningExpression(expression.AfterFirstOccuranceOf("<"), functionSet);
+            IBooleanReturningStatement condition = new CompareLessThan(smaller, bigger);
+            return condition;
         }
 
 
@@ -75,21 +108,30 @@ namespace Parser
             if (isNumeric) return new MyInteger(n);
             if (s.Contains(">"))
             {
-                var args = new List<StringAbstraction>(s.AfterFirstArrow().Split(",")); ;
-
-
-                return new CallIntegerReturningFunction(args.Select(x => ParseIntReturningExpression(x, functionSet)).ToList(), functionSet, new FunctionName( s.Split(">")[0].Value()));
+                return ParseFunctionEvalulation(s, functionSet);
             }
             if (s.StartsWith("sum:"))
             {
-                List<StringAbstraction> args = s.AfterFirstColon().Split(",");
-                IIntegerReturningStatement a = ParseIntReturningExpression(args[0],functionSet);
-                IIntegerReturningStatement b = ParseIntReturningExpression(args[1],functionSet);
-
-                return new Sum(a, b);
-
+                return ParseSum(s, functionSet);
             }
+            if(s.StartsWith("-")) return new Negation(new IntVariableEvaluation(new VariableName( s.AfterFirstOccuranceOf("-").Value())));
             return new IntVariableEvaluation(new VariableName(s.Value()));
+        }
+
+        private static IIntegerReturningStatement ParseSum(StringAbstraction s, FunctionDefinitionSet functionSet)
+        {
+            List<StringAbstraction> args = s.AfterFirstColon().Split(",");
+            IIntegerReturningStatement a = ParseIntReturningExpression(args[0], functionSet);
+            IIntegerReturningStatement b = ParseIntReturningExpression(args[1], functionSet);
+            return new Sum(a, b);
+        }
+
+        private static IIntegerReturningStatement ParseFunctionEvalulation(StringAbstraction s,
+            FunctionDefinitionSet functionSet)
+        {
+            var args = new List<StringAbstraction>(s.AfterFirstArrow().Split(","));
+            return new CallIntegerReturningFunction(args.Select(x => ParseIntReturningExpression(x, functionSet)).ToList(),
+                functionSet, new FunctionName(s.Split(">")[0].Value()));
         }
     }
 }

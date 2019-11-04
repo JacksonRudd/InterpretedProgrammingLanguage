@@ -1,11 +1,40 @@
 ﻿Mult| a,b
 	x = 0
 	answer = 0
+	if: b< 0
+		b = -b
+		a = -a
+	end
 	while: x<b
 		answer = sum: answer,a
 		x = sum: x,1
 	end
 	return answer
 
-print: Mult> 3,5
+Mod| a,b
+	mult = 0
+	x = 0
+	while: mult<b
+		mult = sum: mult, a
+		x = sum: x,1
+	end
+	return x
+
+Power| a, b
+	x = 0
+	answer = 1
+
+	while: x<b
+		answer = Mult> answer,a
+		x = sum: x,1
+	end
+	return answer
+
+print: Mult> 3,-5
+print: Mult> -3,5
+print: Mult> -3,-5
+print: Mod> 3,15
+print: Power> 4,2
+
+
 end

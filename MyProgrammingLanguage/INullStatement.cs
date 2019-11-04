@@ -54,7 +54,19 @@ namespace MyProgrammingLanguage
             return context.GetValue(variableName);
         }
     }
+    public class Negation : IIntegerReturningStatement
+    {
+        private IIntegerReturningStatement statement;
 
+        public Negation(IIntegerReturningStatement _statement)
+        {
+            this.statement = _statement;
+        }
+        public MyInteger execute(Context context)
+        {
+            return statement.execute(context).Negate();
+        }
+    }
     public class MyInteger : IIntegerReturningStatement
     {
         public int me;
@@ -81,6 +93,12 @@ namespace MyProgrammingLanguage
         public MyInteger Plus(MyInteger other)
         {
             return new MyInteger(me + other.me);
+        }
+
+        public MyInteger Negate()
+        {
+            me = -me;
+            return this;
         }
     }
 
