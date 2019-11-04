@@ -21,7 +21,7 @@ namespace Parser
                 {
                     args = new List<StringAbstraction>(codeFile.GetCurrentLine().AfterFirstPipe().Split(",")); ;
                     functionBlock = GetBlock(codeFile, functionSet);
-                    functionSet.Add(new FunctionName(s.Split("|")[0].Value()),
+                    functionSet.Add(new FunctionName(s.BeforeFirstOccuranceOf("|").Value()),
                         new IntReturningFunction(
                         functionBlock,
                         ParseIntReturningExpression(codeFile.GetCurrentLine().Replace("return", ""), functionSet),
@@ -40,15 +40,15 @@ namespace Parser
                 if (s.Contains("="))
                 {
                     var split = s.Split("=");
-                    IIntegerReturningStatement toSetTo = ParseIntReturningExpression(split[1], functionSet);
-                    block.AddChild(new IntegerAssignment(new VariableName(split[0].Value().ToString()), toSetTo));
+                    IIntegerReturningStatement toSetTo = ParseIntReturningExpression(s.AfterFirstOccuranceOf("="), functionSet);
+                    block.AddChild(new IntegerAssignment(new VariableName(s.BeforeFirstOccuranceOf("=").ToString()), toSetTo));
                     continue;
                 }
                 if (s.StartsWith("while:"))
                 {
                     StringAbstraction expression = codeFile.GetCurrentLine().AfterFirstColon();
-                    IIntegerReturningStatement smaller = ParseIntReturningExpression(expression.Split("<")[0], functionSet);
-                    IIntegerReturningStatement bigger = ParseIntReturningExpression(expression.Split("<")[1], functionSet);
+                    IIntegerReturningStatement smaller = ParseIntReturningExpression(expression.BeforeFirstOccuranceOf("<"), functionSet);
+                    IIntegerReturningStatement bigger = ParseIntReturningExpression(expression.AfterFirstOccuranceOf("<"), functionSet);
                     IBooleanReturningStatement condition = new CompareLessThan(smaller, bigger);
                     block.AddChild(new WhileLoop(condition, GetBlock(codeFile, functionSet)));
                     continue;
@@ -56,8 +56,8 @@ namespace Parser
                 if (s.StartsWith("if:"))
                 {
                     StringAbstraction expression = s.Split(":")[1];
-                    IIntegerReturningStatement smaller = ParseIntReturningExpression(expression.Split("<")[0], functionSet);
-                    IIntegerReturningStatement bigger = ParseIntReturningExpression(expression.Split("<")[1], functionSet);
+                    IIntegerReturningStatement smaller = ParseIntReturningExpression(expression.BeforeFirstOccuranceOf("<"), functionSet);
+                    IIntegerReturningStatement bigger = ParseIntReturningExpression(expression.AfterFirstOccuranceOf("<"), functionSet);
                     IBooleanReturningStatement condition = new CompareLessThan(smaller, bigger);
                     block.AddChild(new IfStatement(condition, GetBlock(codeFile, functionSet)));
                     continue;
@@ -65,13 +65,6 @@ namespace Parser
 
 
             }
-        }
-
-        private static IIntegerReturningStatement IntReturningFunctionCallParser(string s)
-        {
-            
-
-            throw new NotImplementedException();
         }
 
 
@@ -96,7 +89,6 @@ namespace Parser
                 return new Sum(a, b);
 
             }
-            if (s.Contains("(")) return IntReturningFunctionCallParser(s.Value());
             return new IntVariableEvaluation(new VariableName(s.Value()));
         }
     }

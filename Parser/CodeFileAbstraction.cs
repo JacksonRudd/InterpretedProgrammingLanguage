@@ -72,5 +72,19 @@ namespace Parser
         {
             return me;
         }
+
+        public StringAbstraction BeforeFirstOccuranceOf(string o)
+        {
+            return this.Split(o)[0];
+        }
+        public StringAbstraction AfterFirstOccuranceOf(string o)
+        {
+            return this.Split(o)[1];
+        }
+
+        public override string ToString()
+        {
+            return Value().ToString();
+        }
     }
 }
