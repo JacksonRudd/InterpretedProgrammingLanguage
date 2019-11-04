@@ -4,16 +4,24 @@ j = 0
 Jackson| a,b
 	print: a
 	return b
-t = Jackson> i, 22222
-print: t
+
 while: i<30
 	j = 0
 	while: j<20
-		if: j< 0
+		if: j< 10
 			print: j
 		end
 		j= sum: j, 1
 	end 
 	i = sum: i, 1
 end
+
+
+
+t = Jackson> i, 22222
+print: t
+
+
+
+
 end

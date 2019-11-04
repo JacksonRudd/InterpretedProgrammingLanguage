@@ -83,20 +83,9 @@ namespace Parser
             if (s.Contains(">"))
             {
                 var args = new List<StringAbstraction>(s.AfterFirstArrow().Split(",")); ;
-                IntReturningFunction function = functionSet.Lookup(
-                    new FunctionName(
-                        s.Split(">")[0].Value()
-                        )
-                    );
-                Context myContext = new Context();
-                List<IIntegerReturningStatement> statements = new List<IIntegerReturningStatement>();
 
-                for (int i = 0; i < function.variableNames.Count; i++)
-                {
-                    statements.Add(ParseIntReturningExpression(args[i], functionSet));
-                }
 
-                return new CallIntegerReturningFunction(function,statements);
+                return new CallIntegerReturningFunction(args.Select(x => ParseIntReturningExpression(x, functionSet)).ToList(), functionSet, new FunctionName( s.Split(">")[0].Value()));
             }
             if (s.StartsWith("sum:"))
             {

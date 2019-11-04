@@ -151,22 +151,26 @@ namespace MyProgrammingLanguage
     }
     public class CallIntegerReturningFunction : IIntegerReturningStatement
     {
-        private IntReturningFunction function;
-        private readonly List<IIntegerReturningStatement> _statement;
+        private readonly List<IIntegerReturningStatement> _args;
+        private readonly FunctionDefinitionSet _functionSet;
+        private readonly FunctionName _name;
 
-        public CallIntegerReturningFunction(IntReturningFunction function,List<IIntegerReturningStatement> statement)
+        public CallIntegerReturningFunction(List<IIntegerReturningStatement> args, FunctionDefinitionSet functionSet, FunctionName name)
         {
-            this.function = function;
-            _statement = statement;
-
+            _args = args;
+            _functionSet = functionSet;
+            _name = name;
         }
         public MyInteger execute(Context context)
         {
+            IntReturningFunction function = _functionSet.Lookup(
+                _name
+            );
             Context myContext = new Context();
 
             for (int i = 0; i < function.variableNames.Count; i++)
             {
-                myContext.AddVariableAssignment(function.variableNames[i], _statement[i].execute(context));
+                myContext.AddVariableAssignment(function.variableNames[i], _args[i].execute(context));
             }
             return function.execute(myContext);
         }
