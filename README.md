@@ -1,5 +1,5 @@
 # InterpretedProgrammingLanguage written in .NET
-This is a simple interpreted programming language. You can see some sample programs below written in the langauge. These can be run in the .NET project included.
+This is a simple interpreted programming language. You can see some sample programs below written in the langauge. These can be run in the .NET project included. No external libraries are used. 
 
 There are two projects one defines the abstract syntax tree, and the other is a quick and dirty parser that does not use any lexing. 
 
