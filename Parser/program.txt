@@ -1,23 +1,11 @@
 ﻿i = 0
 j = 0
 
-
-Mult| a,b
-	x = 0
-	answer = 0
-	while: x<b
-		answer = sum: answer,a
-		x = sum: x,1
-	end
-	return answer
-
-
-
 while: i<30
 	j = 0
 	while: j<20
 		if: j< 10
-			print: Mult> i, j
+			sum: sum> i, j
 		end
 		j= sum: j, 1
 	end 
