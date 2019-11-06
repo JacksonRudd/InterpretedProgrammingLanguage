@@ -11,8 +11,4 @@ while: i<30
 	end 
 	i = sum: i, 1
 end
-
-
-
-
 end
